@@ -71,10 +71,6 @@ mern-blog/
 ### Environment Setup
 
 1. Clone the repository
-   ```
-   git clone <repository-url>
-   cd week-4-mern-integration-assignment-AlphaC137
-   ```
 
 2. Install dependencies for both client and server
    ```powershell
