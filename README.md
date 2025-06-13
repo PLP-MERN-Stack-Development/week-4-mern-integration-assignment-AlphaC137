@@ -1,74 +1,164 @@
+# MERN Stack Blog Application
+
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19753564&assignment_repo_type=AssignmentRepo)
-# MERN Stack Integration Assignment
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+A full-featured blog application built with the MERN (MongoDB, Express, React, Node.js) stack, demonstrating seamless integration between front-end and back-end components.
 
-## Assignment Overview
+## Features
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+- User authentication (register/login/logout)
+- User profile management
+- Create, read, update, delete blog posts
+- Categories for organizing posts
+- Comment system
+- Image upload functionality
+- Responsive design using Tailwind CSS
 
 ## Project Structure
 
+The application is divided into two main directories:
+
 ```
 mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
+├── client/                 # React front-end with Vite
 │   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
+│   │   ├── components/     # Reusable UI components
+│   │   ├── contexts/       # React context providers
 │   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
+│   │   ├── pages/          # Page components
+│   │   ├── services/       # API service functions
+│   │   ├── App.jsx         # Main application component
+│   │   ├── main.jsx        # Application entry point
+│   │   └── index.css       # Global styles
 │   └── package.json        # Client dependencies
 ├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
+│   ├── middleware/         # Express middleware
 │   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
+│   ├── routes/             # API route definitions
+│   ├── uploads/            # Uploaded files storage
+│   ├── server.js           # Server entry point
 │   └── package.json        # Server dependencies
 └── README.md               # Project documentation
 ```
+## Technologies Used
 
-## Getting Started
+### Frontend
+- React.js
+- React Router for navigation
+- React Query for data fetching and caching
+- React Hook Form for form validation
+- Tailwind CSS for styling
+- Vite as build tool
+- Context API for state management
+- React Toastify for notifications
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose ODM
+- JWT for authentication
+- Multer for file uploads
+- Joi for input validation
+- Bcrypt for password hashing
 
-## Files Included
+## Setup and Installation
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local or cloud instance)
 
-## Requirements
+### Environment Setup
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+1. Clone the repository
+   ```
+   git clone <repository-url>
+   cd week-4-mern-integration-assignment-AlphaC137
+   ```
 
-## Submission
+2. Install dependencies for both client and server
+   ```powershell
+   cd client
+   npm install
+   
+   cd ../server
+   npm install
+   ```
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+3. Create environment files:
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+   For client (`client/.env`):
+   ```
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+   For server (`server/.env`):
+   ```
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/mern-blog
+   JWT_SECRET=your_jwt_secret
+   JWT_EXPIRE=30d
+   ```
+
+### Running the Application
+
+1. Start the server
+   ```powershell
+   cd server
+   npm run dev
+   ```
+
+2. In a separate terminal, start the client
+   ```powershell
+   cd client
+   npm run dev
+   ```
+
+3. Access the application at `http://localhost:5173`
+
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user profile
+- `PUT /api/auth/profile` - Update user profile
+- `PUT /api/auth/password` - Change user password
+
+### Posts
+- `GET /api/posts` - Get all posts (supports pagination and filtering)
+- `GET /api/posts/:id` - Get a single post
+- `POST /api/posts` - Create a post
+- `PUT /api/posts/:id` - Update a post
+- `DELETE /api/posts/:id` - Delete a post
+- `POST /api/posts/:id/comments` - Add comment to post
+- `GET /api/posts/search?q=query` - Search posts
+
+### Categories
+- `GET /api/categories` - Get all categories
+- `POST /api/categories` - Create a category
+
+## Features Implementation
+
+### Authentication
+- JWT-based authentication
+- Protected routes on both client and server
+- User registration and login
+- Profile management
+
+### Blog Posts
+- Full CRUD operations
+- Rich text editor integration
+- Image uploads for post featured images
+- Category assignment
+- Commenting system
+
+### User Experience
+- Responsive design with Tailwind CSS
+- Loading states and error handling
+- Form validation
+- Toast notifications for user feedback
+- Optimistic UI updates
 
 ## Resources
 
@@ -76,4 +166,4 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 - [Express.js Documentation](https://expressjs.com/)
 - [React Documentation](https://react.dev/)
 - [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+- [Mongoose Documentation](https://mongoosejs.com/docs/)
