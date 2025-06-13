@@ -1,0 +1,23 @@
+{
+  "name": "mern-blog-app",
+  "version": "1.0.0",
+  "description": "Full-stack MERN Blog application",
+  "main": "start-app.js",
+  "scripts": {
+    "start": "node start-app.js",
+    "install-all": "cd client && npm install && cd ../server && npm install",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "node start-app.js"
+  },
+  "keywords": [
+    "mern",
+    "mongodb",
+    "express",
+    "react",
+    "node",
+    "blog"
+  ],
+  "author": "",
+  "license": "MIT"
+}
